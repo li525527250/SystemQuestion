@@ -16,6 +16,7 @@ public class LoginFilter extends HttpServlet implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
+		//查看session中是否有user用户
 		if (req.getSession().getAttribute("user") == null) {
 			res.sendRedirect("../login1.jsp");
 		} else
