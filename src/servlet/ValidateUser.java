@@ -24,6 +24,7 @@ public class ValidateUser extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		UserDao userDao=new UserDao();
+		//获取到用户名
 		String uname=request.getParameter("uname");
 		boolean f=userDao.selectID(uname);
 		if(f){
