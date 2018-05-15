@@ -57,28 +57,30 @@ public class BanswerOrNoServlet extends HttpServlet {
 		String aString = request.getParameter("jiejue");
 		HttpSession session = request.getSession();
 		Buser uBuser = (Buser) session.getAttribute("user");
-		// 通过已经登录的用户的权限进行查询问题
-		if (uBuser.getUauthorityid() == 1) {
-			// 管理员查询出来的问题
-			String a = request.getParameter("jiejue");
-			if (a.equals("11")) {
-				list = QuestioinDao.getquestionbyanswerId1(1, 1);
-				System.out.println(list.size());
+		if (uBuser != null) {
+			// 通过已经登录的用户的权限进行查询问题
+			if (uBuser.getUauthorityid() == 1) {
+				// 管理员查询出来的问题
+				String a = request.getParameter("jiejue");
+				if (a.equals("11")) {
+					list = QuestioinDao.getquestionbyanswerId1(1, 1);
+					System.out.println(list.size());
+				} else {
+					list = QuestioinDao.getquestionbyanswerId1(0, 1);
+				}
 			} else {
-				list = QuestioinDao.getquestionbyanswerId1(0, 1);
+				// 普通用户查询出来的问题
+				String b = request.getParameter("jiejue");
+				if (b.equals("11")) {
+					list = QuestioinDao.getquestionbyanswerId2(1, uBuser.getUid());
+				} else {
+					list = QuestioinDao.getquestionbyanswerId2(0, uBuser.getUid());
+				}
 			}
-		} else {
-			// 普通用户查询出来的问题
-			String b = request.getParameter("jiejue");
-			if (b.equals("11")) {
-				list = QuestioinDao.getquestionbyanswerId2(1, uBuser.getUid());
-			} else {
-				list = QuestioinDao.getquestionbyanswerId2(0, uBuser.getUid());
-			}
+			HttpSession session2 = request.getSession();
+			session2.setAttribute("list", list);
+			request.getRequestDispatcher("page/index1.jsp").forward(request, response);
 		}
-		HttpSession session2 = request.getSession();
-		session2.setAttribute("list", list);
-		request.getRequestDispatcher("page/index1.jsp").forward(request, response);
 		out.close();
 	}
 

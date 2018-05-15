@@ -111,33 +111,36 @@ public class SubmitQuestion extends HttpServlet {
 		String dateStr = new SimpleDateFormat("yyyy-MM-dd").format(date);
 		HttpSession session = req.getSession();
 		Buser buser = (Buser) session.getAttribute("user");
-		Question question = new Question(jieda, dateStr, buser.getUname(), buser.getUid(), gongkai, src,
-				buser.getCompany());
-		// 调用问题的添加方法，添加一个问题
-		Boolean boolean1 = QuestioinDao.addQuestion(question);
-		// 判断是否添加成功
-		if (boolean1) {
-			// 判断已经登录用户是否为管理员还是为普通用户
-			if (buser.getUauthorityid() != 1) {
-				List<Question> list1 = QuestioinDao.getquestionbyid(buser.getUid());
-				req.setAttribute("list", list1);
-				req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+		if (buser != null) {
+
+			Question question = new Question(jieda, dateStr, buser.getUname(), buser.getUid(), gongkai, src,
+					buser.getCompany());
+			// 调用问题的添加方法，添加一个问题
+			Boolean boolean1 = QuestioinDao.addQuestion(question);
+			// 判断是否添加成功
+			if (boolean1) {
+				// 判断已经登录用户是否为管理员还是为普通用户
+				if (buser.getUauthorityid() != 1) {
+					List<Question> list1 = QuestioinDao.getquestionbyid(buser.getUid());
+					req.setAttribute("list", list1);
+					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				} else {
+					List<Question> list1 = QuestioinDao.getquestionby();
+					;
+					req.setAttribute("list", list1);
+					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				}
 			} else {
-				List<Question> list1 = QuestioinDao.getquestionby();
-				;
-				req.setAttribute("list", list1);
-				req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
-			}
-		} else {
-			if (buser.getUauthorityid() != 1) {
-				List<Question> list1 = QuestioinDao.getquestionbyid(buser.getUid());
-				req.setAttribute("list", list1);
-				req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
-			} else {
-				List<Question> list1 = QuestioinDao.getquestionby();
-				;
-				req.setAttribute("list", list1);
-				req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				if (buser.getUauthorityid() != 1) {
+					List<Question> list1 = QuestioinDao.getquestionbyid(buser.getUid());
+					req.setAttribute("list", list1);
+					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				} else {
+					List<Question> list1 = QuestioinDao.getquestionby();
+					;
+					req.setAttribute("list", list1);
+					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				}
 			}
 		}
 		out.flush();

@@ -55,17 +55,19 @@ public class QuestionServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		Buser user = (Buser) session.getAttribute("user");
-		List<Question> list = new ArrayList<Question>();
-		if (user.getUauthorityid() != 1) {
-			// 普通用户权限
-			list = QuestioinDao.getquestionbyid(user.getUid());
-		} else {
-			// 管理员权限
-			list = QuestioinDao.getquestionby();
+		if (user != null) {
+			List<Question> list = new ArrayList<Question>();
+			if (user.getUauthorityid() != 1) {
+				// 普通用户权限
+				list = QuestioinDao.getquestionbyid(user.getUid());
+			} else {
+				// 管理员权限
+				list = QuestioinDao.getquestionby();
+			}
+			HttpSession session2 = request.getSession();
+			session2.setAttribute("list", list);
+			request.getRequestDispatcher("page/index1.jsp").forward(request, response);
 		}
-		HttpSession session2 = request.getSession();
-		session2.setAttribute("list", list);
-		request.getRequestDispatcher("page/index1.jsp").forward(request, response);
 		out.close();
 	}
 

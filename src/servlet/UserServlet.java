@@ -49,16 +49,17 @@ public class UserServlet extends HttpServlet {
 		String name = request.getParameter("userName");
 		String password = request.getParameter("passWord");
 		Buser user = userDao.selectuser(name, password);
-		System.out.println(user.getUid());
-		if (user.getUid() == 0) {
-			//5月14修改用户名登录验证
-				out.println("<script>alert('用户名或密码错误');location.href='login1.jsp'</script>");	
-		} else {
-			//request.setAttribute("loginStart", '0'); 
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			// 查询成功跳转至查询问题界面
-			request.getRequestDispatcher("Selectquestion2").forward(request, response);
+		if (user != null) {
+			if (user.getUid() == 0) {
+				// 5月14修改用户名登录验证
+				out.println("<script>alert('用户名或密码错误');location.href='login1.jsp'</script>");
+			} else {
+				// request.setAttribute("loginStart", '0');
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+				// 查询成功跳转至查询问题界面
+				request.getRequestDispatcher("Selectquestion2").forward(request, response);
+			}
 		}
 		out.close();
 	}

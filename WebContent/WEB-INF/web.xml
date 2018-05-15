@@ -100,4 +100,20 @@
   <filter-name>LoginFilter</filter-name>   
   <url-pattern>/page/*</url-pattern>
   </filter-mapping>
+  <error-page>
+         <error-code>401</error-code>
+         <location>/HttpErrorHandlerServlet</location>
+     </error-page>     
+     <error-page>
+         <error-code>404</error-code>
+         <location>/HttpErrorHandlerServlet</location>
+     </error-page>
+  <servlet>
+    <servlet-name>HttpErrorHandlerServlet</servlet-name>
+    <servlet-class>ccsos.HttpErrorHandlerServlet</servlet-class>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>HttpErrorHandlerServlet</servlet-name>
+    <url-pattern>/HttpErrorHandlerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

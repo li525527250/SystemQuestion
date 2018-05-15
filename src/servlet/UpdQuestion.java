@@ -99,31 +99,33 @@ public class UpdQuestion extends HttpServlet {
 		HttpSession session = req.getSession();
 		Buser buser = (Buser) session.getAttribute("user");
 		int openOrNo = 0;
-		Question question = new Question(questionid, dateStr, jieda, jiejue, gongkai, src);
-		// 将修改解答过后的问题提交
-		Boolean boolean1 = QuestioinDao.updQuestion(question);
-		// 判断修改成功以后
-		if (boolean1) {
-			if (buser.getUid() != 1) {
-				List<Question> list1 = QuestioinDao.getquestionbyid(buser.getUid());
-				req.setAttribute("list", list1);
-				req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+		if (buser != null) {
+			Question question = new Question(questionid, dateStr, jieda, jiejue, gongkai, src);
+			// 将修改解答过后的问题提交
+			Boolean boolean1 = QuestioinDao.updQuestion(question);
+			// 判断修改成功以后
+			if (boolean1) {
+				if (buser.getUid() != 1) {
+					List<Question> list1 = QuestioinDao.getquestionbyid(buser.getUid());
+					req.setAttribute("list", list1);
+					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				} else {
+					List<Question> list1 = QuestioinDao.getquestionby();
+					;
+					req.setAttribute("list", list1);
+					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				}
 			} else {
-				List<Question> list1 = QuestioinDao.getquestionby();
-				;
-				req.setAttribute("list", list1);
-				req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
-			}
-		} else {
-			if (buser.getUid() != 1) {
-				List<Question> list1 = QuestioinDao.getquestionbyid(buser.getUid());
-				req.setAttribute("list", list1);
-				req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
-			} else {
-				List<Question> list1 = QuestioinDao.getquestionby();
-				;
-				req.setAttribute("list", list1);
-				req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				if (buser.getUid() != 1) {
+					List<Question> list1 = QuestioinDao.getquestionbyid(buser.getUid());
+					req.setAttribute("list", list1);
+					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				} else {
+					List<Question> list1 = QuestioinDao.getquestionby();
+					;
+					req.setAttribute("list", list1);
+					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
+				}
 			}
 		}
 		out.flush();

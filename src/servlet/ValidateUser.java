@@ -23,14 +23,16 @@ public class ValidateUser extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		UserDao userDao=new UserDao();
-		//获取到用户名
-		String uname=request.getParameter("uname");
-		boolean f=userDao.selectID(uname);
-		if(f){
-			out.println("<img src='../img/derr.gif'>");
-		}else{
-			out.println("<img src='../img/dsucess.gif'>");
+		UserDao userDao = new UserDao();
+		// 获取到用户名
+		String uname = request.getParameter("uname");
+		if (uname != null) {
+			boolean f = userDao.selectID(uname);
+			if (f) {
+				out.println("<img src='../img/derr.gif'>");
+			} else {
+				out.println("<img src='../img/dsucess.gif'>");
+			}
 		}
 		out.flush();
 		out.close();
