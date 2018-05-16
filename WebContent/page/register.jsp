@@ -102,8 +102,7 @@
 						<tr>
 							<td class="field">设置公司区域：</td>
 							<td><select name="gongshi">
-								<option value="请选择公司" selected>请选择公司
-								<option value="上海公司">上海公司
+								<option value="上海公司" selected>上海公司
 								<option value="京津冀公司">京津冀公司
 								<option value="安徽公司">安徽公司
 								<option value="岳阳公司">岳阳公司
