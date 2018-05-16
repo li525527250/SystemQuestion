@@ -31,6 +31,11 @@ public class HttpErrorHandlerServlet extends HttpServlet {
             out.println("您所访问的页面并不存在,或者已经被移动到其他位置.<p>");
             out.println("如有其它问题,请<a href=mailto:zsgzs.com@gmail.com>联系管理员</a>");
             break;
+        case 500:
+            out.println("<h2>HTTP状态代码: "+status_code+"</h2>");
+            out.println("您所访问的页面并不存在,或者已经被移动到其他位置.<p>");
+            out.println("如有其它问题,请<a href=mailto:zsgzs.com@gmail.com>联系管理员</a>");
+            break;
         default:
             break;
         }

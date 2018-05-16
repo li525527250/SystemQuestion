@@ -108,9 +108,13 @@
          <error-code>404</error-code>
          <location>/HttpErrorHandlerServlet</location>
      </error-page>
+     <error-page>
+         <error-code>500</error-code>
+         <location>/HttpErrorHandlerServlet</location>
+     </error-page>
   <servlet>
     <servlet-name>HttpErrorHandlerServlet</servlet-name>
-    <servlet-class>ccsos.HttpErrorHandlerServlet</servlet-class>
+    <servlet-class>servlet.HttpErrorHandlerServlet</servlet-class>
   </servlet>
     <servlet-mapping>
     <servlet-name>HttpErrorHandlerServlet</servlet-name>
