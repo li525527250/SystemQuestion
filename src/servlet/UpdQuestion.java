@@ -64,7 +64,6 @@ public class UpdQuestion extends HttpServlet {
 		while (fileNames.hasMoreElements()) {
 			String name = (String) fileNames.nextElement();
 			File file = multiReq.getFile(name);
-			System.out.println(file);
 			if (null != file) {
 				String fileName = multiReq.getFilesystemName(name);
 				String contentType = multiReq.getContentType(name);

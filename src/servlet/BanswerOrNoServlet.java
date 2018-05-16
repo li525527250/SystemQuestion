@@ -64,7 +64,6 @@ public class BanswerOrNoServlet extends HttpServlet {
 				String a = request.getParameter("jiejue");
 				if (a.equals("11")) {
 					list = QuestioinDao.getquestionbyanswerId1(1, 1);
-					System.out.println(list.size());
 				} else {
 					list = QuestioinDao.getquestionbyanswerId1(0, 1);
 				}

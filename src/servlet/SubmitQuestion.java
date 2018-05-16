@@ -102,7 +102,6 @@ public class SubmitQuestion extends HttpServlet {
 		while (formValue.hasMoreElements()) {
 			String param = (String) formValue.nextElement();
 			String value = multiReq.getParameter(param);
-			System.out.println(value);
 			list.add(value);
 		}
 		String jieda = list.get(1);
