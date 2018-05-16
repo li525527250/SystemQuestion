@@ -23,17 +23,13 @@ public class HttpErrorHandlerServlet extends HttpServlet {
 		case 401:
 			out.println("<h2>HTTP状态代码: " + status_code + "</h2>");
 			out.println("您无权访问该页面.");
-			out.println("<p>如有其它问题,请<a href=mailto:zsgzs.com@gmail.com>联系管理员</a>");
+			out.println("<style>body{text-align:center}#msg{background-color:white;border:1px solid #1B76B7;margin:0 auto;width:400px;text-align:left}.msgtitle{padding:3px 3px;color:white;font-weight:700;line-height:21px;height:25px;font-size:12px;border-bottom:1px solid #1B76B7; text-indent:3px; background-color:#1B76B7}#msgbody{font-size:12px;padding:40px 8px 50px;line-height:25px}#msgbottom{text-align:center;height:20px;line-height:20px;font-size:12px;background-color:#1b76b7;color:#FFFFFF}</style><div id='msg'><div class='msgtitle'>【警告】参数错误：</div><div id='msgbody'><b>错误描述</b>："+status_code+"访问被拒绝</div><div id='msgbottom'>远大住工</div></div>");
 			break;
 		case 404:
-			out.println("<h2>HTTP状态代码: " + status_code + "</h2>");
-			out.println("您所访问的页面并不存在,或者已经被移动到其他位置.<p>");
-			out.println("如有其它问题,请<a href=mailto:zsgzs.com@gmail.com>联系管理员</a>");
+			out.println("<style>body{text-align:center}#msg{background-color:white;border:1px solid #1B76B7;margin:0 auto;width:400px;text-align:left}.msgtitle{padding:3px 3px;color:white;font-weight:700;line-height:21px;height:25px;font-size:12px;border-bottom:1px solid #1B76B7; text-indent:3px; background-color:#1B76B7}#msgbody{font-size:12px;padding:40px 8px 50px;line-height:25px}#msgbottom{text-align:center;height:20px;line-height:20px;font-size:12px;background-color:#1b76b7;color:#FFFFFF}</style><div id='msg'><div class='msgtitle'>【警告】参数错误：</div><div id='msgbody'><b>错误描述</b>："+status_code+"找不到该页面</div><div id='msgbottom'>远大住工</div></div>");
 			break;
 		case 500:
-			out.println("<h2>HTTP状态代码: " + status_code + "</h2>");
-			out.println("您所访问的页面存在问题,或者已经被移动到其他位置.<p>");
-			out.println("如有其它问题,请<a href=mailto:zsgzs.com@gmail.com>联系管理员</a>");
+			out.println("<style>body{text-align:center}#msg{background-color:white;border:1px solid #1B76B7;margin:0 auto;width:400px;text-align:left}.msgtitle{padding:3px 3px;color:white;font-weight:700;line-height:21px;height:25px;font-size:12px;border-bottom:1px solid #1B76B7; text-indent:3px; background-color:#1B76B7}#msgbody{font-size:12px;padding:40px 8px 50px;line-height:25px}#msgbottom{text-align:center;height:20px;line-height:20px;font-size:12px;background-color:#1b76b7;color:#FFFFFF}</style><div id='msg'><div class='msgtitle'>【警告】参数错误：</div><div id='msgbody'><b>错误描述</b>："+status_code+"Web 服务器太忙</div><div id='msgbottom'>远大住工</div></div>");
 			break;
 		default:
 			break;
