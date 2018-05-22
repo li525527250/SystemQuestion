@@ -111,7 +111,6 @@ public class SubmitQuestion extends HttpServlet {
 		HttpSession session = req.getSession();
 		Buser buser = (Buser) session.getAttribute("user");
 		if (buser != null) {
-
 			Question question = new Question(jieda, dateStr, buser.getUname(), buser.getUid(), gongkai, src,
 					buser.getCompany());
 			// 调用问题的添加方法，添加一个问题
