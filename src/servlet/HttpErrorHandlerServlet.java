@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+//对于网页异常做出处理
 public class HttpErrorHandlerServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -21,6 +21,7 @@ public class HttpErrorHandlerServlet extends HttpServlet {
 		out.println("  <HEAD><TITLE>错误页面</TITLE></HEAD>");
 		out.println("  <BODY>");
 		switch (status_code) {
+		//当网页报401时所显示出来的网页
 		case 401:
 			out.println(
 					"<style>body{text-align:center}#msg{background-color:white;border:1px solid #1B76B7;margin:0 auto;width:400px;text-align:left}"
@@ -29,6 +30,7 @@ public class HttpErrorHandlerServlet extends HttpServlet {
 					+ "</style><div id='msg'><div class='msgtitle'>【警告】参数错误：</div><div id='msgbody'><b>错误描述</b>：     "
 							+ status_code + "    访问被拒绝</div><div id='msgbottom'>远大住工</div></div>");
 			break;
+			//当网页报404时所显示出来的网页
 		case 404:
 			out.println(
 					"<style>body{text-align:center}#msg{background-color:white;border:1px solid #1B76B7;margin:0 auto;width:400px;text-align:left}"
@@ -37,6 +39,7 @@ public class HttpErrorHandlerServlet extends HttpServlet {
 					+ "</style><div id='msg'><div class='msgtitle'>【警告】参数错误：</div><div id='msgbody'><b>错误描述</b>：      "
 							+ status_code + "    找不到该页面</div><div id='msgbottom'>远大住工</div></div>");
 			break;
+			//当网页报500时所显示出来的网页
 		case 500:
 			out.println(
 					"<style>body{text-align:center}#msg{background-color:white;border:1px soli6d #1B76B7;margin:0 auto;width:400px;text-align:left}"
