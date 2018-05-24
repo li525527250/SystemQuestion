@@ -42,13 +42,10 @@
 
 
 <script type="text/javascript">
-	
 	function altRows(id){
 		if(document.getElementsByTagName){  
-			
 			var table = document.getElementById(id);  
 			var rows = table.getElementsByTagName("tr"); 
-			 
 			for(i = 0; i < rows.length; i++){          
 				if(i % 2 == 0){
 					rows[i].className = "evenrowcolor";
@@ -87,12 +84,10 @@
          });  
 		}
 		function f3(){
-			document.getElementById("form3").submit();
-				 
+			document.getElementById("form3").submit();	 
 			}
 		function f1(){
-		var wenti=document.getElementsByName("wenti").value;
-			 
+		var wenti=document.getElementsByName("wenti").value;	 
 		}
 	   	</script>
 <style type="text/css">
@@ -202,7 +197,6 @@ table.altrowstable td {
 						</tr>
 					</c:forEach>
 				</tbody>
-
 			</table>
 		</div>
 	</form>
@@ -239,7 +233,6 @@ table.altrowstable td {
 				</tr>
 			</table>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
 		</form>
 	</div>
 </body>

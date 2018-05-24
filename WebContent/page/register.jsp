@@ -18,7 +18,6 @@
 		var uname = document.regForm.userName.value;
 		if (uname != "") {//用户名不用空的需要验证
 			//	    alert(uname);
-
 			var url = "../ValidateUser?uname=" + uname + "&"
 					+ new Date().getTime();
 			//alert() 就不提交   true异步提交
@@ -47,7 +46,6 @@
 				var span = document.getElementById("userspan");
 				span.innerHTML = msg;
 				span.className = "error";
-
 			}
 		}
 

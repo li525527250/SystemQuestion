@@ -14,7 +14,6 @@
 		//获取当前文本框的值
 		var uname = document.regForm.userName.value;
 		//alert(uname);
-
 		if (uname != "") {//用户名不用空的需要验证
 			//alert(uname)
 		} else {
@@ -22,7 +21,6 @@
 			var span = document.getElementById("userspan");
 			span.innerHTML = "用户名不能为空!";
 			span.className = "error";
-
 		}
 	}
 	var req;
@@ -34,7 +32,6 @@
 			req = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 	}
-
 	window.onload = createRequest;
 </script>
 </head>

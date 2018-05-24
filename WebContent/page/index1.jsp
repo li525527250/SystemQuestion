@@ -103,14 +103,11 @@ div a:hover {
 	src="http://www.w3cschool.cc/try/jeasyui/datagrid-scrollview.js"></script>
 
 
-<script type="text/javascript">
-	
+<script type="text/javascript">	
 	function altRows(id){
 		if(document.getElementsByTagName){  
-			
 			var table = document.getElementById(id);  
 			var rows = table.getElementsByTagName("tr"); 
-			 
 			for(i = 0; i < rows.length; i++){          
 				if(i % 2 == 0){
 					rows[i].className = "evenrowcolor";
@@ -149,12 +146,10 @@ div a:hover {
          });  
 		}
 		function f3(){
-			document.getElementById("form3").submit();
-				 
+			document.getElementById("form3").submit(); 
 			}
 		function f1(){
-		var wenti=document.getElementsByName("wenti").value;
-			 
+		var wenti=document.getElementsByName("wenti").value;	 
 		}
 	   	</script>
 <style type="text/css">
@@ -323,7 +318,6 @@ table.altrowstable td {
             if( width>maxWidth || height>maxHeight ){
                 rateWidth = width / maxWidth;
                 rateHeight = height / maxHeight;
-                
                 if( rateWidth > rateHeight ){
                     param.width =  maxWidth;
                     param.height = Math.round(height / rateWidth);

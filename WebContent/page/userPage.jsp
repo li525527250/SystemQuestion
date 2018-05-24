@@ -30,10 +30,8 @@
 <script type="text/javascript">
 	function altRows(id) {
 		if (document.getElementsByTagName) {
-
 			var table = document.getElementById(id);
 			var rows = table.getElementsByTagName("tr");
-
 			for (i = 0; i < rows.length; i++) {
 				if (i % 2 == 0) {
 					rows[i].className = "evenrowcolor";
@@ -127,7 +125,6 @@ table.altrowstable td {
 				<div class="demo-tip icon-tip">&nbsp;</div>
 				<div>您的意见将是我们前进的动力</div>
 			</div>
-
 			<div style="margin-bottom: 10px"></div>
 			</table>
 			</form>
@@ -166,7 +163,6 @@ table.altrowstable td {
 						</c:forEach>
 					</table>
 					<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
 				</form>
 			</div>
 		</div>

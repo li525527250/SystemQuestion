@@ -82,7 +82,6 @@
 <script type="text/javascript">
 	function altRows(id) {
 		if (document.getElementsByTagName) {
-
 			var table = document.getElementById(id);
 			var rows = table.getElementsByTagName("tr");
 
@@ -160,7 +159,6 @@ function f12(a){
 				<div class="demo-tip icon-tip">&nbsp;</div>
 				<div>您的意见将是我们前进的动力</div>
 			</div>
-
 			<div style="margin-bottom: 10px"></div>
 			</table>
 			</form>
