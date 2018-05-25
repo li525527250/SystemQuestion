@@ -110,7 +110,6 @@ public class UpdQuestion extends HttpServlet {
 					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
 				} else {
 					List<Question> list1 = QuestioinDao.getquestionby();
-					;
 					req.setAttribute("list", list1);
 					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
 				}
@@ -121,7 +120,6 @@ public class UpdQuestion extends HttpServlet {
 					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
 				} else {
 					List<Question> list1 = QuestioinDao.getquestionby();
-					;
 					req.setAttribute("list", list1);
 					req.getRequestDispatcher("page/index1.jsp").forward(req, resp);
 				}
