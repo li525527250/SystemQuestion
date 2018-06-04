@@ -21,7 +21,7 @@ public class BaseDao {
 		return con;
 	}
 
-	// 关闭所有连接对象
+	// 关闭�?��连接对象
 	public static void closeAll(ResultSet rs, Statement sta, Connection conn) {
 		try {
 			if (rs != null)

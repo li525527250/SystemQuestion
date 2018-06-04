@@ -163,7 +163,7 @@ function f12(a){
 			</table>
 			</form>
 			<div class="demo-info" style="margin-bottom: 10px">
-				<h2>请对员工问题提出解决方案。</h2>
+				<h2>请对系统问题提出意见及建议。</h2>
 				<div class="demo-tip icon-tip">&nbsp;</div>
 				<form method="post" action="SubminQuestion"
 					enctype="multipart/form-data">
